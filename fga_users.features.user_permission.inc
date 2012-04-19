@@ -10,9 +10,11 @@
 function fga_users_user_default_permissions() {
   $permissions = array();
 
+
+  // We check to see if contrib modules exists before attempting to set the permissions
+
   // Exported permission: access administration menu
   if (module_exists('admin_menu')) {
-
     $permissions['access administration menu'] = array(
       'name' => 'access administration menu',
       'roles' => array(
@@ -22,29 +24,7 @@ function fga_users_user_default_permissions() {
       'module' => 'admin_menu',
     );
   }
-  // Exported permission: access backup and migrate
-  if (module_exists('backup_migrate')) {
-    
-    $permissions['access backup and migrate'] = array(
-      'name' => 'access backup and migrate',
-      'roles' => array(
-        0 => 'site administrator',
-        1 => 'site developer',
-      ),
-      'module' => 'backup_migrate',
-    );
-    
-    // Exported permission: perform backup
-    $permissions['perform backup'] = array(
-      'name' => 'perform backup',
-      'roles' => array(
-        0 => 'site administrator',
-        1 => 'site developer',
-      ),
-      'module' => 'backup_migrate',
-    );
-    
-  }
+
 
   
   // Exported permission: access administration pages
