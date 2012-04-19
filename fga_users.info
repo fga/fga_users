@@ -1,0 +1,41 @@
+name = "FGA Users"
+description = "base user roles and permissions for FGA hemispheres. "
+package = "FGA"
+
+core = "7.x"   version = "7.x-0.10"  project = "fga_users"
+
+#####################################################################
+
+dependencies[] = "features"
+dependencies[] = "strongarm"
+dependencies[] = "system"
+dependencies[] = "node"
+
+recommends[] = "contextual"
+recommends[] = "admin_menu"
+recommends[] = "backup_migrate"
+recommends[] = "captcha"
+recommends[] = "ctools"
+
+
+features[ctools][] = "strongarm:strongarm:1"
+
+features[user_permission][] = "access administration menu"
+features[user_permission][] = "access administration pages"
+features[user_permission][] = "access backup and migrate"
+features[user_permission][] = "access contextual links"
+features[user_permission][] = "access site in maintenance mode"
+features[user_permission][] = "access site reports"
+features[user_permission][] = "bypass node access"
+features[user_permission][] = "perform backup"
+features[user_permission][] = "skip CAPTCHA"
+features[user_permission][] = "view the administration theme"
+
+features[user_role][] = "site administrator"
+features[user_role][] = "site developer"
+features[user_role][] = "unconfirmed"
+
+features[variable][] = "user_admin_role"
+features[variable][] = "user_cancel_method"
+features[variable][] = "user_default_timezone"
+features[variable][] = "user_email_verification"
