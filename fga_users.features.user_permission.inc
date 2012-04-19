@@ -11,34 +11,50 @@ function fga_users_user_default_permissions() {
   $permissions = array();
 
   // Exported permission: access administration menu
-  $permissions['access administration menu'] = array(
-    'name' => 'access administration menu',
-    'roles' => array(
-      0 => 'site administrator',
-      1 => 'site developer',
-    ),
-    'module' => 'admin_menu',
-  );
+  if (module_exists('admin_menu')) {
 
+    $permissions['access administration menu'] = array(
+      'name' => 'access administration menu',
+      'roles' => array(
+        0 => 'site administrator',
+        1 => 'site developer',
+      ),
+      'module' => 'admin_menu',
+    );
+  }
+  // Exported permission: access backup and migrate
+  if (module_exists('backup_migrate')) {
+    
+    $permissions['access backup and migrate'] = array(
+      'name' => 'access backup and migrate',
+      'roles' => array(
+        0 => 'site administrator',
+        1 => 'site developer',
+      ),
+      'module' => 'backup_migrate',
+    );
+    
+    // Exported permission: perform backup
+    $permissions['perform backup'] = array(
+      'name' => 'perform backup',
+      'roles' => array(
+        0 => 'site administrator',
+        1 => 'site developer',
+      ),
+      'module' => 'backup_migrate',
+    );
+    
+  }
+
+  
   // Exported permission: access administration pages
   $permissions['access administration pages'] = array(
     'name' => 'access administration pages',
     'roles' => array(
-      0 => 'occupation curator',
-      1 => 'site administrator',
-      2 => 'site developer',
-    ),
-    'module' => 'system',
-  );
-
-  // Exported permission: access backup and migrate
-  $permissions['access backup and migrate'] = array(
-    'name' => 'access backup and migrate',
-    'roles' => array(
       0 => 'site administrator',
       1 => 'site developer',
     ),
-    'module' => 'backup_migrate',
+    'module' => 'system',
   );
 
   // Exported permission: access contextual links
@@ -81,34 +97,13 @@ function fga_users_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: perform backup
-  $permissions['perform backup'] = array(
-    'name' => 'perform backup',
-    'roles' => array(
-      0 => 'site administrator',
-      1 => 'site developer',
-    ),
-    'module' => 'backup_migrate',
-  );
-
-  // Exported permission: skip CAPTCHA
-  $permissions['skip CAPTCHA'] = array(
-    'name' => 'skip CAPTCHA',
-    'roles' => array(
-      0 => 'occupation curator',
-      1 => 'site administrator',
-      2 => 'site developer',
-    ),
-    'module' => 'captcha',
-  );
 
   // Exported permission: view the administration theme
   $permissions['view the administration theme'] = array(
     'name' => 'view the administration theme',
     'roles' => array(
-      0 => 'occupation curator',
-      1 => 'site administrator',
-      2 => 'site developer',
+      0 => 'site administrator',
+      1 => 'site developer',
     ),
     'module' => 'system',
   );

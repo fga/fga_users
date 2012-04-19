@@ -2,7 +2,9 @@ name = "FGA Users"
 description = "base user roles and permissions for FGA hemispheres. "
 package = "FGA"
 
-core = "7.x"   version = "7.x-0.10"  project = "fga_users"
+core = "7.x"
+version = "7.x-0.11"
+project = "fga_users"
 
 #####################################################################
 
